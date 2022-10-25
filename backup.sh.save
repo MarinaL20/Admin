@@ -1,0 +1,25 @@
+
+#data backup
+backup_files="/home/kali/web-server/"
+
+#file storage location
+dest="/home/kali/backups/"
+
+#name
+data=$(date+%A)
+hostname=$(hostname -s)
+archive_file="$hostname-$day.tgz"
+
+#message
+echo "Backing up $backup_files to $dest/$archive_file"
+date
+echo
+
+#make archove
+tar czf $dest/$archive_file $backup_files
+
+# end massage
+echo
+echo "Backup finished"
+crontab -e
+
